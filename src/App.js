@@ -18,20 +18,26 @@ function App() {
 
       for(const key in data){
         modifiedTask.push({
+          key,
           id: data[key].id,
-          task: data[key].task
+          task: data[key].task,
+          done: data[key].done
         })
       }
+      setIsLoading(false);
       setTasks(modifiedTask);
     } catch (error) {
       
     }
-    setIsLoading(false);
   }
+
+  useEffect(() => {
+    fetchTask()
+  }, [])
 
   return (
     <div className="App bg-pink-200 min-h-[100vh] h-[100%] text-[17px]">
-      <Main tasks={tasks} fetchTask={fetchTask} isLoading={isLoading} setIsLoading={setIsLoading} />
+      <Main tasks={tasks} fetchTask={fetchTask} isLoading={isLoading} setIsLoading={setIsLoading} taskCount={tasks.length} />
     </div>
   );
 }

@@ -52,17 +52,13 @@ const InputForm = ({fetchTask, isLoading, setIsLoading}) => {
     }    
   }
 
-  useEffect(() => {
-    fetchTask()
-  }, [])
-
   return (
         <div className="flex justify-center py-5 mb-[15px]">
       <form onSubmit={submitNewTask}>
           <input
             type="text"
             placeholder="Type your next task here..."
-            className="rounded-tl-md rounded-bl-md p-2 w-[250px] sm:w-[400px] lg:w-[530px]"
+            className="rounded-tl-md rounded-bl-md p-2 w-[250px] sm:w-[400px] lg:w-[540px]"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             required
